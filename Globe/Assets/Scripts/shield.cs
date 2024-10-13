@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class shield : MonoBehaviour
 {
-
+    [SerializeField] private int durabiltiy = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,10 @@ public class shield : MonoBehaviour
         if (other.CompareTag("enemy"))
         {
             Destroy(other.gameObject);
+            durabiltiy--;
+
+            if (durabiltiy == 0)
+                Destroy(gameObject);
         }
     }
 }

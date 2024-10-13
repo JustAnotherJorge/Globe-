@@ -35,4 +35,11 @@ public class health : MonoBehaviour
         print(hearts);
 
     }
+
+    public void heal(int amountToHeal)
+    {
+        hearts += amountToHeal;
+
+        print(hearts);
+    }
 }
