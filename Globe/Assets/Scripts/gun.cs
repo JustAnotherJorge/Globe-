@@ -11,6 +11,8 @@ public class gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.LookAt(2 * transform.position - Vector3.zero);
+
         InvokeRepeating("shoot", shotiInterval, shotiInterval);
     }
 

@@ -5,10 +5,12 @@ using UnityEngine;
 public class astroidSpawning : MonoBehaviour
 {
     [SerializeField] private GameObject astroid;
+
+    [SerializeField] private float spawnRate = 3;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawn", 1, 3);
+        InvokeRepeating("spawn", 1, spawnRate);
     }
 
     // Update is called once per frame

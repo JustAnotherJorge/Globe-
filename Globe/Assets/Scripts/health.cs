@@ -8,38 +8,24 @@ public class health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(hearts);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void dealDamage(int damageToDeal)
     {
-        if (other.CompareTag("enemy"))
-        {
-            Destroy(other.gameObject);
-            dealDamage();
-        } 
-    }
-
-    private void dealDamage()
-    {
-        hearts--;
+        hearts -= damageToDeal;
         if ( hearts == 0)
             Destroy(gameObject);
-
-        print(hearts);
-
     }
 
     public void heal(int amountToHeal)
     {
         hearts += amountToHeal;
-
-        print(hearts);
     }
 }

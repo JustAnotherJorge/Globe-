@@ -9,7 +9,9 @@ public class Heal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     Invoke("doHeal", healTime);   
+        transform.LookAt(Vector3.zero);
+
+        Invoke("doHeal", healTime);   
     }
 
     void doHeal()

@@ -21,7 +21,7 @@ public class basicBullet : MonoBehaviour
     {
         if (other.CompareTag("enemy"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<astroid>().astroidHealth--;
             Destroy(gameObject);
         }
     }

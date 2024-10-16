@@ -9,7 +9,7 @@ public class shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.LookAt(Vector3.zero);
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class shield : MonoBehaviour
     {
         if (other.CompareTag("enemy"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<astroid>().astroidHealth--;
             durabiltiy--;
 
             if (durabiltiy == 0)
