@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotiInterval: 1
   bullet: {fileID: 1878236393430183508, guid: 34d2b19340f7b094684f1311564dfd97, type: 3}
+  ammo: 10000

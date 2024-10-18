@@ -5,6 +5,7 @@ using UnityEngine;
 public class globeControl : MonoBehaviour
 {
     [SerializeField] private float myRot;
+    [SerializeField] private float rotSpeed = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,14 @@ public class globeControl : MonoBehaviour
             myRot += 10;
         }
 
-        transform.localEulerAngles = new Vector3(transform.eulerAngles.x, 0 + myRot, transform.eulerAngles.z);
+        //transform.localEulerAngles = new Vector3(transform.eulerAngles.x, 0 + -myRot, transform.eulerAngles.z);
+        //transform.eulerAngles = Vector3.Lerp( new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z), new Vector3(transform.eulerAngles.x, 0 + -myRot, transform.eulerAngles.z), 0.01f);
+        float targetAngle = Mathf.LerpAngle(transform.eulerAngles.y, -myRot, rotSpeed);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, targetAngle, transform.eulerAngles.z);
+    }
+
+    void OnMessageArrived(string msg)
+    {
+        myRot = float.Parse(msg);
     }
 }
