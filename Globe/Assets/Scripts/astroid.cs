@@ -51,8 +51,8 @@ public class astroid : MonoBehaviour
 
     void killAstroid()
     {
-        GameObject newresource = Instantiate(resource, transform.position, Quaternion.identity);
-        newresource.GetComponent<resource>().resourceType = astroidType;
+        //GameObject newresource = Instantiate(resource, transform.position, Quaternion.identity);
+        //newresource.GetComponent<resource>().resourceType = astroidType;
         Destroy(gameObject);
     }
 }

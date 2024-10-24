@@ -21,7 +21,11 @@ public class basicBullet : MonoBehaviour
     {
         if (other.CompareTag("enemy"))
         {
-            other.GetComponent<astroid>().astroidHealth--;
+            if (other.GetComponent<enemyHealth>() != null)
+            {
+                other.GetComponent<enemyHealth>().health--;
+            }
+           
             Destroy(gameObject);
         }
     }
