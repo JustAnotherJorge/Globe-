@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 227555956}
   - component: {fileID: 227555955}
   m_Layer: 0
-  m_Name: Spawn Managre
+  m_Name: Spawn Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,8 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRate: 3
   enemies:
-  - {fileID: 2744640213886909777, guid: d01fa162dbdc1934d9ad2886ba2f2afb, type: 3}
+  - {fileID: 2744640213886909777, guid: f1e9850ddfba4dd41b4187b6ae4b6aba, type: 3}
   - {fileID: 5640336684472523650, guid: 57ad42b57638a31499eae99b3de9d4c9, type: 3}
+  - {fileID: 2744640213886909777, guid: d01fa162dbdc1934d9ad2886ba2f2afb, type: 3}
 --- !u!4 &227555956
 Transform:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 5768868155307520016, guid: 36b21703a2d0c904c8ce6c38a59b1d0b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5768868155307520016, guid: 36b21703a2d0c904c8ce6c38a59b1d0b,
         type: 3}
@@ -631,7 +632,7 @@ PrefabInstance:
     - target: {fileID: 5768868155307520016, guid: 36b21703a2d0c904c8ce6c38a59b1d0b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5768868155307520016, guid: 36b21703a2d0c904c8ce6c38a59b1d0b,
         type: 3}
@@ -835,7 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRot: 0
-  rotSpeed: 10
+  rotSpeed: 50
 --- !u!135 &1606586762
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -953,6 +954,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1096389725}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2018560964
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2744640213886909777, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_Name
+      value: Collision Orbit Fall And Shoot On Death Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.32999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13309607
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744640213886909784, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466429742031494221, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466429742031494221, guid: d01fa162dbdc1934d9ad2886ba2f2afb,
+        type: 3}
+      propertyPath: autoShoot
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d01fa162dbdc1934d9ad2886ba2f2afb, type: 3}
 --- !u!1001 &2029305108631104751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -973,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 5768868155307520016, guid: 36b21703a2d0c904c8ce6c38a59b1d0b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5768868155307520016, guid: 36b21703a2d0c904c8ce6c38a59b1d0b,
         type: 3}

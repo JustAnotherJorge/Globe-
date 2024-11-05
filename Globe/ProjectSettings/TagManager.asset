@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
-  - resource
-  - buildSite
+  - Player Weapon
   layers:
   - Default
   - TransparentFX

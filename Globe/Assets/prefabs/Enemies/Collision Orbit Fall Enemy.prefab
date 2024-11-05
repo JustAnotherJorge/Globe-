@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagetoDeal: 1
+  targetTag:
+  - Player
 --- !u!114 &2744640213886909783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  OnHealthEqualsZero:
+    m_PersistentCalls:
+      m_Calls: []

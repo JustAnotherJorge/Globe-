@@ -23,7 +23,6 @@ public class astroidSpawning : MonoBehaviour
     void spawn()
     {
         int i = Random.Range(0, enemies.Length);
-        print(i);
 
         var spawnPo = Random.insideUnitCircle.normalized * 10;
         Instantiate(enemies[i], new Vector3(spawnPo.x, 0, spawnPo.y), Quaternion.identity);
