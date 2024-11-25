@@ -7,10 +7,12 @@ public class gun : MonoBehaviour
     [SerializeField] private float shotiInterval = 1;
     [SerializeField] private GameObject bullet;
 
-    [SerializeField] private int ammo = 5;
+    private AudioSource _myAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        _myAudioSource = GetComponent<AudioSource>();
         transform.LookAt(2 * transform.position - Vector3.zero);
 
         InvokeRepeating("shoot", shotiInterval, shotiInterval);
@@ -19,9 +21,6 @@ public class gun : MonoBehaviour
     void shoot()
     {
         Instantiate(bullet, transform.position, transform.rotation);
-        ammo--;
-
-        if (ammo == 0)
-            Destroy(gameObject);
+        _myAudioSource.Play();
     }
 }

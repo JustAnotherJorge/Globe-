@@ -7,6 +7,8 @@ public class globeControl : MonoBehaviour
     [SerializeField] private float myRot;
     [SerializeField] private float rotSpeed = 1.0f;
 
+    public bool _keyboardControl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,27 +18,34 @@ public class globeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (_keyboardControl == true)
         {
-            myRot -= 10;
+            if (Input.GetKey(KeyCode.RightArrow))
+                myRot -= 10;
+            else if (Input.GetKey(KeyCode.LeftArrow))
+                myRot += 10;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            myRot += 10;
-        }
-
-        //transform.localEulerAngles = new Vector3(transform.eulerAngles.x, 0 + -myRot, transform.eulerAngles.z);
-        //transform.eulerAngles = Vector3.Lerp( new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z), new Vector3(transform.eulerAngles.x, 0 + -myRot, transform.eulerAngles.z), 0.01f);
+        
         float targetAngle = Mathf.LerpAngle(transform.eulerAngles.y, -myRot, rotSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, targetAngle, transform.eulerAngles.z);
+
     }
 
     void OnConnectionEvent(bool success)
     {
         Debug.Log(success ? "Device connected" : "Device disconnected");
+
+        if (!success)
+        {
+            _keyboardControl = true;
+            rotSpeed = rotSpeed / 5;
+        }
+            
     }
+
     void OnMessageArrived(string msg)
     {
-        myRot = float.Parse(msg);
+        if (_keyboardControl == false)
+            myRot = float.Parse(msg);
     }
 }
