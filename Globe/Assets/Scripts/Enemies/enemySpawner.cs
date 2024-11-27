@@ -11,26 +11,53 @@ public class enemySpawner : MonoBehaviour
 
     [SerializeField] private float spawnRadius = 5;
 
-    [SerializeField] private GameObject[] enemies;
+    [SerializeField] private spawnEvent[] enemySpawnEvents;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawnEnemy", baseSpawnRate, baseSpawnRate);
+        spawnCoolDown();
     }
 
-    void spawnEnemy()
+    void spawnCoolDown()
+    {
+        Invoke("spawnManagment", baseSpawnRate);
+    }
+
+    void spawnManagment()
     {
         spawnPosition = Random.insideUnitCircle.normalized * spawnRadius;
-        int enemyToSpawn = Random.Range(0, enemies.Length);
-        Instantiate(enemies[enemyToSpawn], spawnPosition, Quaternion.identity);
+        
+        
+        int spawnEventIndex = Random.Range(0, enemySpawnEvents.Length);
+        int numberOfEnemiesToSpawn = enemySpawnEvents[spawnEventIndex].enemiesToSpawn.Length;
+        print (numberOfEnemiesToSpawn);
+        int currantEnemyIndex = 0;
+        StartCoroutine(spawnEnemy(numberOfEnemiesToSpawn, currantEnemyIndex, spawnEventIndex));
     }
 
-    //private Vector3 RandomPointOnCircleEdge(Vector3 spawnPo)
-    //{
-    //    var vector2 = Random.insideUnitCircle.normalized * spawnRadius;
-    //    return new Vector3(vector2.x, 0, vector2.y);
-    //}
+    IEnumerator spawnEnemy(int numberOfEnemiesToSpawn, int currantEnemyIndex, int spawnEventIndex)
+    {
+        if (enemySpawnEvents[spawnEventIndex].multiPosition == true)
+            spawnPosition = Random.insideUnitCircle.normalized * spawnRadius;
+
+        Instantiate(enemySpawnEvents[spawnEventIndex].enemiesToSpawn[currantEnemyIndex], spawnPosition, Quaternion.identity);
+        currantEnemyIndex++;
+
+        if (currantEnemyIndex < numberOfEnemiesToSpawn)
+        {
+            yield return new WaitForSecondsRealtime(enemySpawnEvents[spawnEventIndex].spawnDelay);
+            StartCoroutine(spawnEnemy(numberOfEnemiesToSpawn, currantEnemyIndex, spawnEventIndex));
+        }
+        else
+        {
+            spawnCoolDown();
+        }
+
+        
+    }
+
 
     // Update is called once per frame
     void Update()

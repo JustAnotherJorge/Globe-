@@ -239,10 +239,9 @@ MonoBehaviour:
   baseSpawnRateModifer: 0
   spawnPosition: {x: 0, y: 0}
   spawnRadius: 3.5
-  enemies:
-  - {fileID: 5640336684472523650, guid: 57ad42b57638a31499eae99b3de9d4c9, type: 3}
-  - {fileID: 2744640213886909777, guid: d01fa162dbdc1934d9ad2886ba2f2afb, type: 3}
-  - {fileID: 2744640213886909777, guid: f1e9850ddfba4dd41b4187b6ae4b6aba, type: 3}
+  enemySpawnEvents:
+  - {fileID: 11400000, guid: 7bf3614541796f246a5d9a523a720ce4, type: 2}
+  - {fileID: 11400000, guid: d43812bd393dcd54ea753fb88fa31419, type: 2}
 --- !u!1001 &327363822
 PrefabInstance:
   m_ObjectHideFlags: 0
