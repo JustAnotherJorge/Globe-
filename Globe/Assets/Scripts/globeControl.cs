@@ -26,8 +26,8 @@ public class globeControl : MonoBehaviour
                 myRot += 10;
         }
         
-        float targetAngle = Mathf.LerpAngle(transform.eulerAngles.y, -myRot, rotSpeed * Time.deltaTime);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, targetAngle, transform.eulerAngles.z);
+        float targetAngle = Mathf.LerpAngle(transform.eulerAngles.z, +myRot, rotSpeed * Time.deltaTime);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, targetAngle);
 
     }
 

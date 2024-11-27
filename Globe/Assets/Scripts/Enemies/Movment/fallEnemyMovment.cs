@@ -8,12 +8,15 @@ public class fallEnemyMovment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.LookAt(Vector3.zero);
+        var dir = Vector3.zero - transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle += 90;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * speed);
+        transform.Translate(Vector3.down * speed);
     }
 }

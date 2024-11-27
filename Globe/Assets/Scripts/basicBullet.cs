@@ -15,10 +15,10 @@ public class basicBullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * speed);
+        transform.Translate(Vector3.up * speed);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("enemy"))
         {

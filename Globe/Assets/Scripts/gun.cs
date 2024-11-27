@@ -13,7 +13,7 @@ public class gun : MonoBehaviour
     void Start()
     {
         _myAudioSource = GetComponent<AudioSource>();
-        transform.LookAt(2 * transform.position - Vector3.zero);
+        //transform.LookAt(2 * transform.position - Vector3.zero);
 
         InvokeRepeating("shoot", shotiInterval, shotiInterval);
     }

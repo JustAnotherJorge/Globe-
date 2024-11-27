@@ -9,8 +9,6 @@ public class enemyCollisionAttack : MonoBehaviour
 {
     [SerializeField] private int damagetoDeal = 1;
 
-    [SerializeField] private string[] targetTag = new string[] {"Player"};
-
 
     // Start is called before the first frame update
     void Start()
@@ -24,17 +22,12 @@ public class enemyCollisionAttack : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(targetTag[0]))
+        if (other.CompareTag("Player"))
         {
             other.GetComponent<health>().dealDamage(damagetoDeal);
             Destroy(gameObject);
-        }
-        else if(targetTag.Length > 1)
-        {
-            if (other.CompareTag(targetTag[1]))
-                Destroy(gameObject);
         }
     }
 }

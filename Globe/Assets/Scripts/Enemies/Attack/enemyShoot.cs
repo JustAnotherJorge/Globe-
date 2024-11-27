@@ -23,7 +23,6 @@ public class enemyShoot : MonoBehaviour
 
     public void shoot()
     {
-        Vector3 direction = Vector3.zero - transform.position;
-        Instantiate(projectile, transform.position, quaternion.LookRotation(direction, Vector3.up));
+        Instantiate(projectile, transform.position, quaternion.identity);  
     }
 }
