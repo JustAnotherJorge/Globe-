@@ -7,11 +7,30 @@ public class enemySpawner : MonoBehaviour
     [SerializeField] private float baseSpawnRate; //The base speed enemies will be spawned at.
     [SerializeField] private float baseSpawnRateModifer; //The modifer that will incree spawnrate overtime;
 
+    public Vector2 spawnPosition;
+
+    [SerializeField] private float spawnRadius = 5;
+
+    [SerializeField] private GameObject[] enemies;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("spawnEnemy", baseSpawnRate, baseSpawnRate);
     }
+
+    void spawnEnemy()
+    {
+        spawnPosition = Random.insideUnitCircle.normalized * spawnRadius;
+        int enemyToSpawn = Random.Range(0, enemies.Length);
+        Instantiate(enemies[enemyToSpawn], spawnPosition, Quaternion.identity);
+    }
+
+    //private Vector3 RandomPointOnCircleEdge(Vector3 spawnPo)
+    //{
+    //    var vector2 = Random.insideUnitCircle.normalized * spawnRadius;
+    //    return new Vector3(vector2.x, 0, vector2.y);
+    //}
 
     // Update is called once per frame
     void Update()
